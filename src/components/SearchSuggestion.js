@@ -58,8 +58,8 @@ const SearchSuggestion = () => {
           className='ui card'
           style={{
             position: 'absolute',
-            left: '16px',
-            top: '50px',
+            left: '0px',
+            top: '100px',
             zIndex: 10,
           }}
         >
