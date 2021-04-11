@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ShowWeather from './components/ShowWeather';
+import SearchCity from './components/SearchCity';
+import SelectedCityContextProvider from './context/SelectedCityContext';
+import SearchSuggestion from './components/SearchSuggestion';
+import SearchTermContextProvider from './context/SearchTermContext';
+import WeatherContextProvider from './context/WeatherContext';
+import SearchSuccessContextProvider from './context/SearchSuccessContext';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='ui segment container' style={{ position: 'relative' }}>
+      <h1 className='ui header'>My Weather App</h1>
+      <SearchTermContextProvider>
+        <SearchSuccessContextProvider>
+          <SelectedCityContextProvider>
+            <WeatherContextProvider>
+              <SearchCity />
+              <SearchSuggestion />
+              <ShowWeather />
+            </WeatherContextProvider>
+          </SelectedCityContextProvider>
+        </SearchSuccessContextProvider>
+      </SearchTermContextProvider>
     </div>
   );
-}
+};
 
 export default App;
